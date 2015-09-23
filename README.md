@@ -1,4 +1,4 @@
-# ÄÇ ¹3 ïî êóðñó php
+# Ð”Ð— â„–3 Ð¿Ð¾ ÐºÑƒÑ€ÑÑƒ php
 
 > git remote add origin https://github.com/qwelp/php_dz3.git
-> git push -u origin master
+> git push -u origin master 
