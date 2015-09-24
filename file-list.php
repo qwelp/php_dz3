@@ -1,11 +1,6 @@
 <?php
-function dump($arr) {
-?><pre><?print_r($arr)?></pre><?
-}
-
 if(isset($_POST["edit_file"])) {
     file_put_contents($_POST["edit_file"], $_POST["edit_text"]);
-    //header("Location: file-list.php");
 }
 if(isset($_POST["add_name"])) {
     file_put_contents("files/".$_POST["add_name"], $_POST["text"]);
@@ -15,7 +10,6 @@ if(isset($_GET["delete"])) {
     @unlink("files/".$_GET["delete"]);
     header("Location: file-list.php");
 }
-
 
 function filesList($dir, $removeFile) // Путь к директории, Массив запрещеных файлов
 {
@@ -124,6 +118,5 @@ function filesList($dir, $removeFile) // Путь к директории, Ма�
     <p><a href="?add">Добавить файл</a></p>
     <?filesList("files/", array('.', '..'));?>
 <?endif;?>
-
 </body>
 </html>
