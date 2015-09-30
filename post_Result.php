@@ -1,11 +1,7 @@
 <?
-try{
-    $pdo = new PDO('mysql:dbname=loftblog_dz2;host=localhost', 'root', '');
-    $pdo->query('SET NAMES "UTF-8"');
+require_once "config.php";
 
-} catch(PDOException $exc){
-    echo "Возникла ошибка при работе с БД: ".$exc->getMessage();
-}
+ini_set('display_errors', 'on');
 
 if(empty($_POST["db"]) || empty($_POST["format"])) {
 
@@ -39,7 +35,6 @@ if($_POST["format"] == "csv") {
     header ("Content-Length: ".filesize($file));
     header ("Content-Disposition: attachment; filename=".$file);
     readfile($file);
-    header("Location: export_DB.php");
 
 }
 
@@ -64,7 +59,6 @@ if($_POST["format"] == "json") {
     header ("Content-Length: ".filesize($file));
     header ("Content-Disposition: attachment; filename=".$file);
     readfile($file);
-    header("Location: export_DB.php");
 }
 
 if($_POST["format"] == "xml") {
@@ -104,10 +98,6 @@ if($_POST["format"] == "xml") {
     header ("Content-Length: ".filesize($file));
     header ("Content-Disposition: attachment; filename=".$file);
     readfile($file);
-    header("Location: export_DB.php");
-
-    /*header('Content-Type: text/xml');
-    echo $dom->saveXML();*/
 
 }
 ?>
